@@ -1,14 +1,16 @@
-# Design Guidelines: Sistem Penukaran Point Limbah Organik
+# Design Guidelines: Sistem Penukaran Point Limbah Organik (Soft Pink Theme)
 
 ## 1. Color Palette
-- **Primary Color**: `#2E7D32` (Forest Green - Merepresentasikan alam dan pengelolaan sampah/lingkungan)
-- **Primary Hover**: `#1B5E20` (Dark Green)
-- **Secondary Color**: `#FFB300` (Amber/Gold - Merepresentasikan point/reward berharga)
-- **Secondary Hover**: `#FF8F00` (Dark Amber)
-- **Background Color (Light)**: `#F4F6F5` (Soft Mint/Grayish White)
+- **Primary Color**: `#E05780` (Soft Rose Pink - Modern, hangat, dan menarik)
+- **Primary Hover**: `#C7436B` (Deeper Rose Pink)
+- **Primary Light**: `#FFF0F3` (Soft Blush Background Tint)
+- **Secondary Color**: `#FB7185` (Blossom Coral Pink - Mewakili poin dan reward berharga)
+- **Secondary Hover**: `#E11D48` (Vibrant Rose)
+- **Secondary Light**: `#FFF1F2` (Light Pastel Pink)
+- **Background Color (Light)**: `#FFF5F7` (Gentle Soft Pink / Blush White)
 - **Surface/Card Color**: `#FFFFFF` (Pure White)
-- **Text Color Primary**: `#212121` (Off-Black)
-- **Text Color Secondary**: `#757575` (Muted Gray)
+- **Text Color Primary**: `#2D232A` (Deep Slate Plum)
+- **Text Color Secondary**: `#7E6E78` (Muted Mauve Gray)
 
 ## 2. Typography
 - **Primary Font Family**: `'Inter', 'Segoe UI', sans-serif`
@@ -19,5 +21,5 @@
 - **Body Text**: 14px / 16px, Regular
 
 ## 3. UI Components & Layout Style
-- Menggunakan konsep **Clean & Eco-Friendly UI** dengan sudut kartu yang membulat (`border-radius: 12px`).
-- Indikator Status Badge dengan warna hijau untuk transaksi sukses, kuning untuk pending, dan merah untuk ditolak.
+- Menggunakan konsep **Clean & Aesthetic Soft Pink UI** dengan sudut kartu yang membulat (`border-radius: 12px`).
+- Indikator Status Badge dengan warna hijau untuk transaksi sukses, kuning/amber untuk pending, dan merah untuk ditolak.

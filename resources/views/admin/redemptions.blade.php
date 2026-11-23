@@ -8,8 +8,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-[#212121]">Manajemen Pencairan Saldo Rupiah</h1>
-            <p class="text-xs text-[#757575]">Verifikasi permohonan penarikan poin dan transfer rupiah ke rekening peserta</p>
+            <h1 class="text-2xl font-bold text-[#2D232A]">Manajemen Pencairan Saldo Rupiah</h1>
+            <p class="text-xs text-[#7E6E78]">Verifikasi permohonan penarikan poin dan transfer rupiah ke rekening peserta</p>
         </div>
     </div>
 
@@ -17,16 +17,16 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <!-- Status Tabs -->
         <div class="flex flex-wrap gap-2 text-xs font-semibold">
-            <a href="{{ route('admin.redemptions', ['search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ empty($status) ? 'bg-[#2E7D32] text-white border-[#2E7D32]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.redemptions', ['search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ empty($status) ? 'bg-[#E05780] text-white border-[#E05780]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Semua
             </a>
-            <a href="{{ route('admin.redemptions', ['status' => 'processing', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'processing' ? 'bg-[#FFB300] text-gray-900 border-[#FFB300]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.redemptions', ['status' => 'processing', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'processing' ? 'bg-[#FB7185] text-white border-[#FB7185]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Perlu Ditransfer
             </a>
-            <a href="{{ route('admin.redemptions', ['status' => 'completed', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'completed' ? 'bg-[#2E7D32] text-white border-[#2E7D32]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.redemptions', ['status' => 'completed', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'completed' ? 'bg-[#E05780] text-white border-[#E05780]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Selesai / Sukses
             </a>
-            <a href="{{ route('admin.redemptions', ['status' => 'cancelled', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'cancelled' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.redemptions', ['status' => 'cancelled', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'cancelled' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Dibatalkan
             </a>
         </div>
@@ -41,9 +41,9 @@
                 name="search" 
                 value="{{ $search }}" 
                 placeholder="Cari nama / email..." 
-                class="px-3 py-1.5 rounded-xl border border-gray-300 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-[#2E7D32]"
+                class="px-3 py-1.5 rounded-xl border border-pink-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-[#E05780]"
             >
-            <button type="submit" class="px-3 py-1.5 rounded-xl btn-primary text-xs font-semibold">Cari</button>
+            <button type="submit" class="px-3 py-1.5 rounded-xl btn-primary text-xs font-semibold shadow-xs">Cari</button>
             @if($search)
                 <a href="{{ route('admin.redemptions', ['status' => $status]) }}" class="text-xs text-gray-400 hover:text-gray-600">&times; Reset</a>
             @endif
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Table Card -->
-    <div class="card-eco bg-white overflow-hidden">
+    <div class="card-eco bg-white overflow-hidden border border-pink-100">
         @if($redemptions->isEmpty())
             <div class="text-center py-12 px-4 text-gray-400">
                 <p class="text-sm font-medium">Tidak ada data penarikan saldo.</p>
@@ -59,7 +59,7 @@
         @else
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-xs">
-                    <thead class="bg-gray-50 border-b border-gray-100 text-gray-500 uppercase tracking-wider font-semibold">
+                    <thead class="bg-pink-50/40 border-b border-pink-100 text-gray-500 uppercase tracking-wider font-semibold">
                         <tr>
                             <th class="py-3.5 px-4">ID & Tanggal</th>
                             <th class="py-3.5 px-4">Peserta</th>
@@ -71,9 +71,9 @@
                             <th class="py-3.5 px-4 text-right">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
+                    <tbody class="divide-y divide-pink-50">
                         @foreach($redemptions as $rd)
-                            <tr class="hover:bg-gray-50/60 transition">
+                            <tr class="hover:bg-pink-50/40 transition">
                                 <td class="py-3.5 px-4">
                                     <span class="font-bold text-gray-900 block">#WD-{{ $rd->id }}</span>
                                     <span class="text-gray-400 text-[11px]">{{ $rd->created_at->format('d M Y, H:i') }}</span>
@@ -82,10 +82,10 @@
                                     <span class="font-bold text-gray-800 block">{{ $rd->user->name }}</span>
                                     <span class="text-gray-400 text-[11px]">{{ $rd->user->email }}</span>
                                 </td>
-                                <td class="py-3.5 px-4 font-bold text-amber-700">
+                                <td class="py-3.5 px-4 font-bold text-[#BE185D]">
                                     -{{ number_format($rd->points_spent) }} Poin
                                 </td>
-                                <td class="py-3.5 px-4 font-extrabold text-emerald-700 text-sm">
+                                <td class="py-3.5 px-4 font-extrabold text-[#E05780] text-sm">
                                     Rp {{ number_format($rd->rupiah_amount, 0, ',', '.') }}
                                 </td>
                                 <td class="py-3.5 px-4">
@@ -106,7 +106,7 @@
                                 </td>
                                 <td class="py-3.5 px-4 max-w-xs text-gray-500">
                                     @if($rd->admin_notes)
-                                        <div class="text-[11px] {{ $rd->status === 'cancelled' ? 'text-red-600 font-medium' : 'text-[#2E7D32]' }}">
+                                        <div class="text-[11px] {{ $rd->status === 'cancelled' ? 'text-red-600 font-medium' : 'text-[#E05780]' }}">
                                             {{ $rd->admin_notes }}
                                         </div>
                                     @else
@@ -118,7 +118,7 @@
                                         <div class="inline-flex items-center space-x-1">
                                             <form action="{{ route('admin.redemptions.complete', $rd) }}" method="POST" class="inline">
                                                 @csrf
-                                                <button type="submit" class="px-2.5 py-1 rounded-lg btn-secondary text-xs font-semibold hover:shadow transition">
+                                                <button type="submit" class="px-2.5 py-1 rounded-lg btn-secondary text-xs font-semibold shadow-xs transition">
                                                     Selesai Transfer
                                                 </button>
                                             </form>
@@ -137,7 +137,7 @@
             </div>
 
             @if($redemptions->hasPages())
-                <div class="p-4 border-t border-gray-100">
+                <div class="p-4 border-t border-pink-100">
                     {{ $redemptions->links() }}
                 </div>
             @endif

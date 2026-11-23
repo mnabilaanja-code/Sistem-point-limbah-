@@ -8,16 +8,16 @@
     <!-- Header -->
     <div class="flex items-center justify-between">
         <div>
-            <a href="{{ route('peserta.transactions') }}" class="text-xs text-gray-500 hover:text-gray-800 flex items-center mb-1">
+            <a href="{{ route('peserta.transactions') }}" class="text-xs text-gray-500 hover:text-[#E05780] flex items-center mb-1">
                 &larr; Kembali ke Riwayat
             </a>
-            <h1 class="text-2xl font-bold text-[#212121]">Setor Limbah Sampah</h1>
-            <p class="text-xs text-[#757575]">Catat penukaran botol atau kaleng untuk mendapatkan poin</p>
+            <h1 class="text-2xl font-bold text-[#2D232A]">Setor Limbah Sampah</h1>
+            <p class="text-xs text-[#7E6E78]">Catat penukaran botol atau kaleng untuk mendapatkan poin</p>
         </div>
     </div>
 
     <!-- Main Card -->
-    <div class="card-eco p-6 md:p-8 bg-white border border-gray-100">
+    <div class="card-eco p-6 md:p-8 bg-white border border-pink-100">
         <form action="{{ route('peserta.transactions.store') }}" method="POST" class="space-y-5">
             @csrf
 
@@ -31,7 +31,7 @@
                     id="waste_type_id" 
                     required 
                     onchange="updateCalculations()"
-                    class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2E7D32] text-sm bg-gray-50 focus:bg-white transition"
+                    class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-[#E05780] text-sm bg-pink-50/20 focus:bg-white transition"
                 >
                     <option value="" disabled selected>-- Pilih Jenis Limbah --</option>
                     @foreach($wasteTypes as $type)
@@ -60,7 +60,7 @@
                     id="quality_grade_id" 
                     required 
                     onchange="updateCalculations()"
-                    class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2E7D32] text-sm bg-gray-50 focus:bg-white transition"
+                    class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-[#E05780] text-sm bg-pink-50/20 focus:bg-white transition"
                 >
                     <option value="" disabled selected>-- Pilih Kondisi Fisik Limbah --</option>
                     @foreach($qualityGrades as $grade)
@@ -74,10 +74,10 @@
                     @endforeach
                 </select>
                 <div class="grid grid-cols-2 gap-2 mt-2 text-[11px] text-gray-500">
-                    <span class="p-1.5 bg-gray-50 rounded"><strong>A:</strong> Sangat Bagus (Bersih, utuh) = 4x</span>
-                    <span class="p-1.5 bg-gray-50 rounded"><strong>B:</strong> Bagus (Cukup bersih) = 3x</span>
-                    <span class="p-1.5 bg-gray-50 rounded"><strong>C:</strong> Cukup (Agak kotor) = 2x</span>
-                    <span class="p-1.5 bg-gray-50 rounded"><strong>D:</strong> Kurang Layak (Penyok/kotor) = 1x</span>
+                    <span class="p-1.5 bg-pink-50/40 rounded border border-pink-100"><strong>A:</strong> Sangat Bagus (Bersih, utuh) = 4x</span>
+                    <span class="p-1.5 bg-pink-50/40 rounded border border-pink-100"><strong>B:</strong> Bagus (Cukup bersih) = 3x</span>
+                    <span class="p-1.5 bg-pink-50/40 rounded border border-pink-100"><strong>C:</strong> Cukup (Agak kotor) = 2x</span>
+                    <span class="p-1.5 bg-pink-50/40 rounded border border-pink-100"><strong>D:</strong> Kurang Layak (Penyok/kotor) = 1x</span>
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
                     step="any"
                     required 
                     oninput="updateCalculations()"
-                    class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2E7D32] text-sm bg-gray-50 focus:bg-white transition"
+                    class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-[#E05780] text-sm bg-pink-50/20 focus:bg-white transition"
                     placeholder="Masukkan jumlah..."
                 >
             </div>
@@ -109,31 +109,31 @@
                     name="notes" 
                     id="notes" 
                     rows="2" 
-                    class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2E7D32] text-sm bg-gray-50 focus:bg-white transition"
+                    class="w-full px-4 py-2 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-[#E05780] text-sm bg-pink-50/20 focus:bg-white transition"
                     placeholder="Contoh: Botol air mineral 600ml sudah dicuci dan dilepas tutupnya..."
                 >{{ old('notes') }}</textarea>
             </div>
 
             <!-- Live Calculation Preview Box -->
-            <div class="p-4 rounded-xl bg-[#E8F5E9] border border-[#C8E6C9]">
+            <div class="p-4 rounded-xl bg-[#FFF0F3] border border-pink-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <span class="text-xs font-semibold text-[#2E7D32] uppercase block">Perkiraan Poin Didapat:</span>
-                        <span id="preview_points" class="text-3xl font-extrabold text-[#1B5E20]">0</span>
-                        <span class="text-sm font-bold text-[#1B5E20]">Poin</span>
+                        <span class="text-xs font-semibold text-[#BE185D] uppercase block">Perkiraan Poin Didapat:</span>
+                        <span id="preview_points" class="text-3xl font-extrabold text-[#BE185D]">0</span>
+                        <span class="text-sm font-bold text-[#BE185D]">Poin</span>
                     </div>
                     <div class="text-right">
                         <span class="text-xs font-semibold text-gray-500 uppercase block">Setara Nominal:</span>
-                        <span id="preview_rupiah" class="text-xl font-bold text-[#2E7D32]">Rp 0</span>
+                        <span id="preview_rupiah" class="text-xl font-bold text-[#E05780]">Rp 0</span>
                     </div>
                 </div>
-                <div class="text-[11px] text-[#2E7D32] mt-2 pt-2 border-t border-[#C8E6C9]">
+                <div class="text-[11px] text-[#BE185D] mt-2 pt-2 border-t border-pink-200">
                     *Poin resmi akan masuk ke saldo aktif Anda setelah tim admin memverifikasi fisik limbah saat serah terima.
                 </div>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="w-full py-3 px-4 rounded-xl btn-primary font-semibold text-sm shadow transition">
+            <button type="submit" class="w-full py-3 px-4 rounded-xl btn-primary font-semibold text-sm shadow-md shadow-pink-200 transition">
                 Kirim Pengajuan Penukaran Limbah
             </button>
         </form>
