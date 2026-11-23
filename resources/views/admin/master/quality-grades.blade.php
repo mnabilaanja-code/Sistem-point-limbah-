@@ -8,16 +8,16 @@
     <!-- Header & Action -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <div class="flex items-center space-x-2 text-xs text-gray-500 mb-1">
+            <div class="flex items-center space-x-2 text-xs text-pink-700 mb-1">
                 <span>Master Data</span>
                 <span>&bull;</span>
                 <span>Standar Mutu Fisik</span>
             </div>
-            <h1 class="text-2xl font-bold text-[#212121]">Master Grade Kualitas Limbah</h1>
-            <p class="text-xs text-[#757575]">Kelola bobot pengali poin berdasarkan kondisi fisik sampah (A, B, C, D)</p>
+            <h1 class="text-2xl font-bold text-[#2D232A]">Master Grade Kualitas Limbah</h1>
+            <p class="text-xs text-[#7E6E78]">Kelola bobot pengali poin berdasarkan kondisi fisik sampah (A, B, C, D)</p>
         </div>
         <div>
-            <button type="button" onclick="openAddGradeModal()" class="px-4 py-2.5 rounded-xl btn-primary text-xs font-semibold shadow-sm flex items-center space-x-1.5">
+            <button type="button" onclick="openAddGradeModal()" class="px-4 py-2.5 rounded-xl btn-primary text-xs font-semibold shadow-md shadow-pink-200 flex items-center space-x-1.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 <span>+ Tambah Grade Kualitas</span>
             </button>
@@ -25,10 +25,10 @@
     </div>
 
     <!-- Table Card -->
-    <div class="card-eco bg-white overflow-hidden">
+    <div class="card-eco bg-white overflow-hidden border border-pink-100">
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
-                <thead class="bg-gray-50 border-b border-gray-100 text-gray-500 uppercase tracking-wider font-semibold">
+                <thead class="bg-pink-50/40 border-b border-pink-100 text-gray-500 uppercase tracking-wider font-semibold">
                     <tr>
                         <th class="py-3.5 px-4">Kode Grade</th>
                         <th class="py-3.5 px-4">Nama Klasifikasi Kualitas</th>
@@ -38,11 +38,11 @@
                         <th class="py-3.5 px-4 text-right">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-100">
+                <tbody class="divide-y divide-pink-50">
                     @forelse($qualityGrades as $grade)
-                        <tr class="hover:bg-gray-50/60 transition">
+                        <tr class="hover:bg-pink-50/40 transition">
                             <td class="py-3.5 px-4">
-                                <span class="w-8 h-8 rounded-lg bg-[#E8F5E9] text-[#2E7D32] font-black text-sm flex items-center justify-center border border-[#C8E6C9]">
+                                <span class="w-8 h-8 rounded-lg bg-[#FFF0F3] text-[#E05780] font-black text-sm flex items-center justify-center border border-pink-200">
                                     {{ $grade->grade_code }}
                                 </span>
                             </td>
@@ -50,7 +50,7 @@
                                 {{ $grade->grade_name }}
                             </td>
                             <td class="py-3.5 px-4">
-                                <span class="px-2.5 py-1 rounded-full text-xs font-black bg-amber-50 text-amber-800 border border-amber-200">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-black bg-pink-50 text-[#BE185D] border border-pink-200">
                                     {{ $grade->point_multiplier }}× Poin
                                 </span>
                             </td>
@@ -64,7 +64,7 @@
                                 <button 
                                     type="button" 
                                     onclick="openEditGradeModal({{ $grade->id }}, '{{ addslashes($grade->grade_code) }}', '{{ addslashes($grade->grade_name) }}', {{ $grade->point_multiplier }}, '{{ addslashes($grade->description ?? '') }}')"
-                                    class="px-2.5 py-1 rounded-lg border border-gray-300 text-gray-700 text-xs font-semibold hover:bg-gray-50 transition"
+                                    class="px-2.5 py-1 rounded-lg border border-pink-200 text-gray-700 text-xs font-semibold hover:bg-pink-50 hover:text-[#E05780] transition"
                                 >
                                     Edit
                                 </button>
@@ -100,24 +100,24 @@
             @csrf
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Kode Grade (Contoh: A, B, C, D) <span class="text-red-500">*</span></label>
-                <input type="text" name="grade_code" required maxlength="5" placeholder="A" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="text" name="grade_code" required maxlength="5" placeholder="A" class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Klasifikasi Mutu <span class="text-red-500">*</span></label>
-                <input type="text" name="grade_name" required placeholder="Contoh: Sangat Bagus" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="text" name="grade_name" required placeholder="Contoh: Sangat Bagus" class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Nilai Pengali Poin (Multiplier) <span class="text-red-500">*</span></label>
-                <input type="number" name="point_multiplier" value="1" min="1" required class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="number" name="point_multiplier" value="1" min="1" required class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
                 <p class="text-[11px] text-gray-400 mt-1">Sesuai PRD: A=4, B=3, C=2, D=1.</p>
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Deskripsi Kondisi Fisik</label>
-                <textarea name="description" rows="2" placeholder="Kondisi fisik sampah yang masuk kriteria ini..." class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]"></textarea>
+                <textarea name="description" rows="2" placeholder="Kondisi fisik sampah yang masuk kriteria ini..." class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]"></textarea>
             </div>
             <div class="flex justify-end space-x-2 pt-2">
                 <button type="button" onclick="closeAddGradeModal()" class="px-4 py-2 rounded-xl border border-gray-300 text-xs text-gray-700 hover:bg-gray-50">Batal</button>
-                <button type="submit" class="px-4 py-2 rounded-xl btn-primary text-xs font-semibold">Simpan Grade</button>
+                <button type="submit" class="px-4 py-2 rounded-xl btn-primary text-xs font-semibold shadow-xs">Simpan Grade</button>
             </div>
         </form>
     </div>
@@ -132,23 +132,23 @@
             @method('PUT')
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Kode Grade <span class="text-red-500">*</span></label>
-                <input type="text" id="edit_grade_code" name="grade_code" required maxlength="5" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="text" id="edit_grade_code" name="grade_code" required maxlength="5" class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Klasifikasi Mutu <span class="text-red-500">*</span></label>
-                <input type="text" id="edit_grade_name" name="grade_name" required class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="text" id="edit_grade_name" name="grade_name" required class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Nilai Pengali Poin <span class="text-red-500">*</span></label>
-                <input type="number" id="edit_grade_multiplier" name="point_multiplier" min="1" required class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]">
+                <input type="number" id="edit_grade_multiplier" name="point_multiplier" min="1" required class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]">
             </div>
             <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Deskripsi Kondisi Fisik</label>
-                <textarea id="edit_grade_desc" name="description" rows="2" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs focus:ring-2 focus:ring-[#2E7D32]"></textarea>
+                <textarea id="edit_grade_desc" name="description" rows="2" class="w-full px-3 py-2 rounded-xl border border-pink-200 text-xs focus:ring-2 focus:ring-[#E05780]"></textarea>
             </div>
             <div class="flex justify-end space-x-2 pt-2">
                 <button type="button" onclick="closeEditGradeModal()" class="px-4 py-2 rounded-xl border border-gray-300 text-xs text-gray-700 hover:bg-gray-50">Batal</button>
-                <button type="submit" class="px-4 py-2 rounded-xl btn-primary text-xs font-semibold">Simpan Perubahan</button>
+                <button type="submit" class="px-4 py-2 rounded-xl btn-primary text-xs font-semibold shadow-xs">Simpan Perubahan</button>
             </div>
         </form>
     </div>

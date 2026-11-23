@@ -7,16 +7,16 @@
 
 @theme {
     --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --color-primary: #2E7D32;
-    --color-primary-hover: #1B5E20;
-    --color-primary-light: #E8F5E9;
-    --color-secondary: #FFB300;
-    --color-secondary-hover: #FF8F00;
-    --color-secondary-light: #FFF8E1;
-    --color-eco-bg: #F4F6F5;
+    --color-primary: #E05780;
+    --color-primary-hover: #C7436B;
+    --color-primary-light: #FFF0F3;
+    --color-secondary: #FB7185;
+    --color-secondary-hover: #E11D48;
+    --color-secondary-light: #FFF1F2;
+    --color-eco-bg: #FFF5F7;
     --color-surface: #FFFFFF;
-    --color-text-main: #212121;
-    --color-text-muted: #757575;
+    --color-text-main: #2D232A;
+    --color-text-muted: #7E6E78;
 }
 
 body {

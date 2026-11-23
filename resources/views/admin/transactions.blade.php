@@ -8,8 +8,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-[#212121]">Validasi Penukaran Limbah</h1>
-            <p class="text-xs text-[#757575]">Periksa fisik botol & kaleng yang disetor peserta dan setujui pemberian poin</p>
+            <h1 class="text-2xl font-bold text-[#2D232A]">Validasi Penukaran Limbah</h1>
+            <p class="text-xs text-[#7E6E78]">Periksa fisik botol & kaleng yang disetor peserta dan setujui pemberian poin</p>
         </div>
     </div>
 
@@ -17,16 +17,16 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <!-- Status Tabs -->
         <div class="flex flex-wrap gap-2 text-xs font-semibold">
-            <a href="{{ route('admin.transactions', ['search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ empty($status) ? 'bg-[#2E7D32] text-white border-[#2E7D32]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.transactions', ['search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ empty($status) ? 'bg-[#E05780] text-white border-[#E05780]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Semua
             </a>
-            <a href="{{ route('admin.transactions', ['status' => 'pending', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'pending' ? 'bg-[#FFB300] text-gray-900 border-[#FFB300]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.transactions', ['status' => 'pending', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'pending' ? 'bg-[#FB7185] text-white border-[#FB7185]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Menunggu Validasi
             </a>
-            <a href="{{ route('admin.transactions', ['status' => 'approved', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'approved' ? 'bg-[#2E7D32] text-white border-[#2E7D32]' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.transactions', ['status' => 'approved', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'approved' ? 'bg-[#E05780] text-white border-[#E05780]' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Disetujui
             </a>
-            <a href="{{ route('admin.transactions', ['status' => 'rejected', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'rejected' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50' }}">
+            <a href="{{ route('admin.transactions', ['status' => 'rejected', 'search' => $search]) }}" class="px-3.5 py-1.5 rounded-xl border {{ $status === 'rejected' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-600 border-pink-200 hover:bg-pink-50 hover:text-[#E05780]' }}">
                 Ditolak
             </a>
         </div>
@@ -41,9 +41,9 @@
                 name="search" 
                 value="{{ $search }}" 
                 placeholder="Cari nama / email..." 
-                class="px-3 py-1.5 rounded-xl border border-gray-300 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-[#2E7D32]"
+                class="px-3 py-1.5 rounded-xl border border-pink-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-[#E05780]"
             >
-            <button type="submit" class="px-3 py-1.5 rounded-xl btn-primary text-xs font-semibold">Cari</button>
+            <button type="submit" class="px-3 py-1.5 rounded-xl btn-primary text-xs font-semibold shadow-xs">Cari</button>
             @if($search)
                 <a href="{{ route('admin.transactions', ['status' => $status]) }}" class="text-xs text-gray-400 hover:text-gray-600">&times; Reset</a>
             @endif
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Transactions Table -->
-    <div class="card-eco bg-white overflow-hidden">
+    <div class="card-eco bg-white overflow-hidden border border-pink-100">
         @if($transactions->isEmpty())
             <div class="text-center py-12 px-4 text-gray-400">
                 <p class="text-sm font-medium">Tidak ada transaksi ditemukan.</p>
@@ -59,7 +59,7 @@
         @else
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-xs">
-                    <thead class="bg-gray-50 border-b border-gray-100 text-gray-500 uppercase tracking-wider font-semibold">
+                    <thead class="bg-pink-50/40 border-b border-pink-100 text-gray-500 uppercase tracking-wider font-semibold">
                         <tr>
                             <th class="py-3.5 px-4">ID & Tanggal</th>
                             <th class="py-3.5 px-4">Peserta</th>
@@ -71,9 +71,9 @@
                             <th class="py-3.5 px-4 text-right">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
+                    <tbody class="divide-y divide-pink-50">
                         @foreach($transactions as $tx)
-                            <tr class="hover:bg-gray-50/60 transition">
+                            <tr class="hover:bg-pink-50/40 transition">
                                 <td class="py-3.5 px-4">
                                     <span class="font-bold text-gray-900 block">#{{ $tx->id }}</span>
                                     <span class="text-gray-400 text-[11px]">{{ $tx->created_at->format('d M Y, H:i') }}</span>
@@ -84,14 +84,14 @@
                                 </td>
                                 <td class="py-3.5 px-4">
                                     <span class="font-semibold text-gray-800 block">{{ $tx->wasteType->name }}</span>
-                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-gray-700 mt-0.5">
+                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-pink-50 text-[#E05780] border border-pink-100 mt-0.5">
                                         Grade {{ $tx->qualityGrade->grade_code }} ({{ $tx->qualityGrade->grade_name }})
                                     </span>
                                 </td>
                                 <td class="py-3.5 px-4 font-semibold text-gray-700">
                                     {{ number_format($tx->quantity) }} {{ $tx->wasteType->unit_type == 'pcs' ? 'Buah' : 'Gram' }}
                                 </td>
-                                <td class="py-3.5 px-4 font-extrabold text-[#2E7D32] text-sm">
+                                <td class="py-3.5 px-4 font-extrabold text-[#E05780] text-sm">
                                     +{{ number_format($tx->earned_points) }}
                                 </td>
                                 <td class="py-3.5 px-4">
@@ -123,7 +123,7 @@
                                         <div class="inline-flex items-center space-x-1">
                                             <form action="{{ route('admin.transactions.approve', $tx) }}" method="POST" class="inline">
                                                 @csrf
-                                                <button type="submit" class="px-2.5 py-1 rounded-lg bg-[#2E7D32] text-white font-semibold text-xs hover:bg-[#1B5E20] transition">
+                                                <button type="submit" class="px-2.5 py-1 rounded-lg btn-primary text-white font-semibold text-xs shadow-xs transition">
                                                     Setujui
                                                 </button>
                                             </form>
@@ -142,7 +142,7 @@
             </div>
 
             @if($transactions->hasPages())
-                <div class="p-4 border-t border-gray-100">
+                <div class="p-4 border-t border-pink-100">
                     {{ $transactions->links() }}
                 </div>
             @endif
